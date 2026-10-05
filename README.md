@@ -1,16 +1,69 @@
-# React + Vite
+@"
+# 🌱 SmartFarm — AI Agriculture Ecosystem
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+An intelligent agriculture monitoring and decision-support system that combines **IoT sensors, AI-based decision making, real-time monitoring, automated irrigation, weather information, plant disease detection, and a voice-enabled chatbot** into a single web dashboard.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Project Overview
 
-## React Compiler
+SmartFarm is designed to help farmers monitor field conditions and make better irrigation and agricultural decisions using real-time sensor data.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The system consists of:
 
-## Expanding the Oxlint configuration
+- 🌱 Soil moisture monitoring
+- 🌡️ Temperature monitoring
+- 💧 Humidity monitoring
+- 🌧️ Rain detection
+- 🧪 Soil/environment parameter monitoring
+- 💦 Automated irrigation control
+- 🌾 Fertilizer monitoring
+- 🤖 AI-based agricultural recommendations
+- 🌿 Plant disease detection
+- 🎙️ Voice-enabled chatbot assistant
+- 📊 Real-time web dashboard
+- 📡 ESP32/IoT integration
+- 🧪 Wokwi simulation support
+- 🌦️ Weather information
+- 🚨 Alert and system-status monitoring
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+---
+
+# 🏗️ System Architecture
+
+```text
+                    ┌──────────────────────┐
+                    │      ESP32 / IoT     │
+                    │                      │
+                    │ Sensors + Relay      │
+                    └──────────┬───────────┘
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │   Wokwi / Hardware   │
+                    │      Simulation      │
+                    └──────────┬───────────┘
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │    FastAPI Backend   │
+                    │      Python          │
+                    └──────────┬───────────┘
+                               │
+              ┌────────────────┼────────────────┐
+              │                │                │
+              ▼                ▼                ▼
+       Sensor Processing   AI Decisions    Irrigation API
+              │                │                │
+              └────────────────┼────────────────┘
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │    React Dashboard   │
+                    │       Vite           │
+                    └──────────┬───────────┘
+                               │
+              ┌────────────────┼────────────────┐
+              │                │                │
+              ▼                ▼                ▼
+          Monitoring       AI Advice       Voice Chatbot
