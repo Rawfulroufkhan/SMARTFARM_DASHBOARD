@@ -2805,7 +2805,7 @@ function Dashboard({
             <button
               className="button-hover"
               style={styles.primary}
-              onClick={startPump}
+              onClick={() => startPump("dashboard_manual")}
               disabled={
                 busy || pump.running
               }
@@ -2819,7 +2819,7 @@ function Dashboard({
             <button
               className="button-hover"
               style={styles.button}
-              onClick={stopPump}
+              onClick={() => stopPump("dashboard_manual")}
               disabled={
                 busy || !pump.running
               }
@@ -3276,7 +3276,7 @@ function Irrigation({
         >
           <button
             style={styles.primary}
-            onClick={startPump}
+            onClick={() => startPump("dashboard_manual")}
             disabled={
               busy || pump.running
             }
@@ -3286,7 +3286,7 @@ function Irrigation({
 
           <button
             style={styles.button}
-            onClick={stopPump}
+            onClick={() => stopPump("dashboard_manual")}
             disabled={
               busy || !pump.running
             }
