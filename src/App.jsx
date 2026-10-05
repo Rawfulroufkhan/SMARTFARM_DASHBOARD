@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import PlantDiseaseRealtime from "./components/PlantDiseaseRealtime";
 import {
   Activity,
   Bell,
@@ -48,6 +49,7 @@ const NAV = [
   ["ai", "AI Decisions", Brain],
   ["irrigation", "Irrigation", Droplets],
   ["fertilizer", "Fertilizer", FlaskConical],
+  ["disease", "Plant Disease", Leaf],
   ["alerts", "Alerts", Bell],
   ["settings", "Settings", SettingsIcon],
 ];
@@ -1437,7 +1439,9 @@ export default function App() {
             </button>
           </div>
         )}
-
+        {page === "disease" && (
+          <PlantDiseaseRealtime />
+        )}
         {page === "dashboard" && (
           <Dashboard
             sensor={sensor}

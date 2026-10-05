@@ -12,3 +12,14 @@ backend/**/__pycache__/
 
 # Database
 backend/*.db
+
+# ML model files
+*.pth
+*.pt
+
+# Test images / datasets
+backend/plant_disease/test_images/
+datasets/
+plant_disease/datasets/
+
+.envcode

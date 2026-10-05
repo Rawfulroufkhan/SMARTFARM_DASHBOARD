@@ -1,9 +1,12 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse
 from pydantic import BaseModel, Field
 from datetime import datetime, timedelta
 from typing import Optional, List
+from plant_disease.disease_model import predict_image
+from PIL import Image
+import io
 import json
 import urllib.request
 import urllib.parse
@@ -11,7 +14,33 @@ import asyncio
 import secrets
 
 app = FastAPI(title="SmartFarm API", version="2.1.0")
+@app.post("/api/disease/predict")
+async def predict_plant_disease(
+    file: UploadFile = File(...)
+):
+    try:
+        # Read uploaded image
+        image_bytes = await file.read()
 
+        # Convert bytes to PIL image
+        image = Image.open(
+            io.BytesIO(image_bytes)
+        ).convert("RGB")
+
+        # Run AI prediction
+        result = predict_image(image)
+
+        return {
+            "success": True,
+            "filename": file.filename,
+            "prediction": result
+        }
+
+    except Exception as e:
+        return {
+            "success": False,
+            "error": str(e)
+        }
 # ============================================================
 # CORS
 # ============================================================
