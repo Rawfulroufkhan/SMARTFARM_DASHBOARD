@@ -1,5 +1,14 @@
-﻿node_modules/
+node_modules/
 dist/
 .env
 .env.local
 *.log
+
+# Python
+backend/venv/
+backend/__pycache__/
+backend/**/__pycache__/
+*.pyc
+
+# Database
+backend/*.db
